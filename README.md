@@ -21,3 +21,8 @@ Generates new answer tied to producer and question it answers
 Remove question by ID
 
 **/api/remove/:id**
+
+## Methods to scale this:
+
+- Database sharding would make question queries much faster.
+- Using a memcache for a question that's receiving answers frequently.
