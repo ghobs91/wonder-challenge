@@ -33,7 +33,7 @@ server.get('/api/questions/:id', (req, res) => {
     });
 });
 
-// Create a record
+// Create a question
 server.post('/api/create', (req, res) => {
   const question = req.body;
 

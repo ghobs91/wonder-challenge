@@ -3,7 +3,7 @@ exports.up = function(knex, Promise) {
     tbl.increments();
     tbl.string('name', 255)
     tbl.string('question', 255)
-  });
+    tbl.foreign('consumer').references('consumers.id')  });
 };
 
 exports.down = function(knex, Promise) {
