@@ -34,7 +34,7 @@ server.get('/api/questions/:id', (req, res) => {
 });
 
 // Create a question
-server.post('/api/create', (req, res) => {
+server.post('/api/create_question', (req, res) => {
   const question = req.body;
 
   db.insert(question)
@@ -47,27 +47,22 @@ server.post('/api/create', (req, res) => {
     });
 });
 
-// Update a specific record
-server.put('/api/modify/:id', (req, res) => {
-  const changes = req.body;
-  const { id } = req.params;
+// Create an answer
+server.post('/api/create_answer', (req, res) => {
+  const answer = req.body;
 
-  db('questions')
-    .where({ id })
-    .update(changes)
-    .update({
-      lastModificationDate: Date.now()
-    })
-    .then(count => {
-      // count === number of records updated
-      res.status(200).json(count);
+  db.insert(answer)
+    .into('answers')
+    .then(ids => {
+      res.status(201).json(ids[0]);
     })
     .catch(err => {
       res.status(500).json(err);
     });
 });
 
-// Delete a specific record
+
+// Delete a specific question
 server.delete('/api/remove/:id', (req, res) => {
   const { id } = req.params;
   db('questions')
