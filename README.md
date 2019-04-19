@@ -16,7 +16,7 @@ Generates new question tied to consumer
 
 Generates new answer tied to producer and question it answers
 
-**/api/create_question**
+**/api/create_answer**
 
 Remove question by ID
 
