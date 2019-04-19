@@ -3,8 +3,8 @@ exports.up = function(knex, Promise) {
     tbl.increments();
     tbl.string('name', 255)
     tbl.string('answer', 255)
-    tbl.foreign('producer').references('producers.id')
-    tbl.foreign('question').references('questions.id')
+    tbl.foreign('producer').references('producers._id')
+    tbl.foreign('question').references('questions._id')
   });
 };
 
